@@ -1,0 +1,1 @@
+// script to deploy the rbt contract
