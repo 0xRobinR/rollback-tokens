@@ -20,6 +20,17 @@ contract RBT is IRBT {
         _;
     }
 
+    constructor(
+        string memory name_,
+        string memory symbol_,
+        uint8 decimals_
+    ) {
+        _name = name_;
+        _symbol = symbol_;
+        _decimals = decimals_;
+        _oracle = msg.sender;
+    }
+
     function name() external view returns ( string memory ) {
         return _name;
     }
