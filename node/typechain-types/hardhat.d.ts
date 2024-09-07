@@ -17,23 +17,113 @@ declare module "hardhat/types/runtime" {
       name: "Lock",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.Lock__factory>;
+    getContractFactory(
+      name: "IRBOracle",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IRBOracle__factory>;
+    getContractFactory(
+      name: "RBTOracle",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.RBTOracle__factory>;
+    getContractFactory(
+      name: "IERC20",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IERC20__factory>;
+    getContractFactory(
+      name: "IRBT",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IRBT__factory>;
+    getContractFactory(
+      name: "RBT",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.RBT__factory>;
 
     getContractAt(
       name: "Lock",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
     ): Promise<Contracts.Lock>;
+    getContractAt(
+      name: "IRBOracle",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IRBOracle>;
+    getContractAt(
+      name: "RBTOracle",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.RBTOracle>;
+    getContractAt(
+      name: "IERC20",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IERC20>;
+    getContractAt(
+      name: "IRBT",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IRBT>;
+    getContractAt(
+      name: "RBT",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.RBT>;
 
     deployContract(
       name: "Lock",
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.Lock>;
+    deployContract(
+      name: "IRBOracle",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.IRBOracle>;
+    deployContract(
+      name: "RBTOracle",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.RBTOracle>;
+    deployContract(
+      name: "IERC20",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.IERC20>;
+    deployContract(
+      name: "IRBT",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.IRBT>;
+    deployContract(
+      name: "RBT",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.RBT>;
 
     deployContract(
       name: "Lock",
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.Lock>;
+    deployContract(
+      name: "IRBOracle",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.IRBOracle>;
+    deployContract(
+      name: "RBTOracle",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.RBTOracle>;
+    deployContract(
+      name: "IERC20",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.IERC20>;
+    deployContract(
+      name: "IRBT",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.IRBT>;
+    deployContract(
+      name: "RBT",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.RBT>;
 
     // default types
     getContractFactory(

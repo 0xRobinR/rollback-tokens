@@ -16,9 +16,9 @@ contract RBTOracle is IRBOracle {
         string memory symbol_,
         uint8 decimals_
     ) external {
-        RBT rbt = new RBT(name_, symbol_, decimals_);
-        isRBTtoken[address(rbt)] = true;
-        emit RBTDeployed(address(rbt));
+        // RBT rbt = new RBT(name_, symbol_, decimals_);
+        // isRBTtoken[address(rbt)] = true;
+        // emit RBTDeployed(address(rbt));
     }
 
     function getReversePeriod() external pure returns (uint) {

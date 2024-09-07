@@ -2,13 +2,13 @@
 pragma solidity ^0.8.24;
 
 import "./IRBT.sol";
-import "../rollback-oracle/IRBOracle.sol";
+import "../rollback-oracle/IRBTOracle.sol";
 
-contract RBT is IRBT {
-    string _name;
-    string _symbol;
-    uint _decimals;
-    uint256 _totalSupply;
+abstract contract RBT is IRBT {
+    string private _name;
+    string private _symbol;
+    uint8 private _decimals;
+    uint256 private _totalSupply;
     address _oracle;
 
     mapping (address => uint256) _balances;
@@ -91,6 +91,6 @@ contract RBT is IRBT {
     }
 
     function _rollback( address account, uint256 tid ) internal {
-        _transfer[account][tid].timestamp = 0;
+        _transfers[account][tid].timestamp = 0;
     }
 }

@@ -3,7 +3,6 @@ pragma circom 2.0.0;
 include "pedersen.circom";
 
 template RbtSahayakCircuit() {
-
     signal input sahayak;
     signal input commitment;
     signal output isValid;
@@ -14,7 +13,10 @@ template RbtSahayakCircuit() {
     pedersenHasher.in[0] <== sahayak;
     pedersenHasher.in[1] <== 0;
     hash_sahayak <== pedersenHasher.out[0];
-    isValid <== (hash_sahayak == commitment);
+
+    signal diff;
+    diff <== hash_sahayak - commitment;
+    isValid <== 1 - diff * diff;
 }
 
 component main = RbtSahayakCircuit();

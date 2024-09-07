@@ -1,5 +1,9 @@
 node_modules
 .env
+powersOfTau28_hez_final_10.ptau
+
+yarn.lock
+package-lock.json
 
 # Hardhat files
 /cache
