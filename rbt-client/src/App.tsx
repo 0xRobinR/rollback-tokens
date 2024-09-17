@@ -1,24 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// src/App.tsx
+import React, { useState } from "react";
+import { generateProof } from "./zk/zkHelper";
 
 function App() {
+  const [sahayak, setSahayak] = useState("");
+  const [proof, setProof] = useState<any>(null);
+
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    try {
+      const result = await generateProof(sahayak);
+      setProof(result);
+    } catch (error) {
+      console.error("Error generating proof:", error);
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>zk-RBT Proof Generator</h1>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Sahayak Address:
+          <input
+            type="text"
+            value={sahayak}
+            onChange={(e) => setSahayak(e.target.value)}
+          />
+        </label>
+        <button type="submit">Generate Proof</button>
+      </form>
+      {proof && (
+        <div>
+          <h2>Generated Proof:</h2>
+          <pre>{JSON.stringify(proof, null, 2)}</pre>
+        </div>
+      )}
     </div>
   );
 }
