@@ -25,7 +25,11 @@ import type {
 
 export interface RBTOracleInterface extends Interface {
   getFunction(
-    nameOrSignature: "deployRBT" | "getReversePeriod" | "isRBTtoken"
+    nameOrSignature:
+      | "deployRBT"
+      | "getReversePeriod"
+      | "isRBTtoken"
+      | "verifySahayak"
   ): FunctionFragment;
 
   getEvent(
@@ -47,6 +51,15 @@ export interface RBTOracleInterface extends Interface {
     functionFragment: "isRBTtoken",
     values: [AddressLike]
   ): string;
+  encodeFunctionData(
+    functionFragment: "verifySahayak",
+    values: [
+      [BigNumberish, BigNumberish],
+      [[BigNumberish, BigNumberish], [BigNumberish, BigNumberish]],
+      [BigNumberish, BigNumberish],
+      [BigNumberish]
+    ]
+  ): string;
 
   decodeFunctionResult(functionFragment: "deployRBT", data: BytesLike): Result;
   decodeFunctionResult(
@@ -54,6 +67,10 @@ export interface RBTOracleInterface extends Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "isRBTtoken", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "verifySahayak",
+    data: BytesLike
+  ): Result;
 }
 
 export namespace RBTDeployedEvent {
@@ -145,6 +162,17 @@ export interface RBTOracle extends BaseContract {
 
   isRBTtoken: TypedContractMethod<[arg0: AddressLike], [boolean], "view">;
 
+  verifySahayak: TypedContractMethod<
+    [
+      a: [BigNumberish, BigNumberish],
+      b: [[BigNumberish, BigNumberish], [BigNumberish, BigNumberish]],
+      c: [BigNumberish, BigNumberish],
+      input: [BigNumberish]
+    ],
+    [boolean],
+    "view"
+  >;
+
   getFunction<T extends ContractMethod = ContractMethod>(
     key: string | FunctionFragment
   ): T;
@@ -162,6 +190,18 @@ export interface RBTOracle extends BaseContract {
   getFunction(
     nameOrSignature: "isRBTtoken"
   ): TypedContractMethod<[arg0: AddressLike], [boolean], "view">;
+  getFunction(
+    nameOrSignature: "verifySahayak"
+  ): TypedContractMethod<
+    [
+      a: [BigNumberish, BigNumberish],
+      b: [[BigNumberish, BigNumberish], [BigNumberish, BigNumberish]],
+      c: [BigNumberish, BigNumberish],
+      input: [BigNumberish]
+    ],
+    [boolean],
+    "view"
+  >;
 
   getEvent(
     key: "RBTDeployed"

@@ -14,10 +14,6 @@ import * as Contracts from ".";
 declare module "hardhat/types/runtime" {
   interface HardhatEthersHelpers extends HardhatEthersHelpersBase {
     getContractFactory(
-      name: "Lock",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.Lock__factory>;
-    getContractFactory(
       name: "IRBOracle",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IRBOracle__factory>;
@@ -37,12 +33,11 @@ declare module "hardhat/types/runtime" {
       name: "RBT",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.RBT__factory>;
+    getContractFactory(
+      name: "Groth16Verifier",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.Groth16Verifier__factory>;
 
-    getContractAt(
-      name: "Lock",
-      address: string | ethers.Addressable,
-      signer?: ethers.Signer
-    ): Promise<Contracts.Lock>;
     getContractAt(
       name: "IRBOracle",
       address: string | ethers.Addressable,
@@ -68,11 +63,12 @@ declare module "hardhat/types/runtime" {
       address: string | ethers.Addressable,
       signer?: ethers.Signer
     ): Promise<Contracts.RBT>;
+    getContractAt(
+      name: "Groth16Verifier",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.Groth16Verifier>;
 
-    deployContract(
-      name: "Lock",
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.Lock>;
     deployContract(
       name: "IRBOracle",
       signerOrOptions?: ethers.Signer | DeployContractOptions
@@ -93,12 +89,11 @@ declare module "hardhat/types/runtime" {
       name: "RBT",
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.RBT>;
-
     deployContract(
-      name: "Lock",
-      args: any[],
+      name: "Groth16Verifier",
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.Lock>;
+    ): Promise<Contracts.Groth16Verifier>;
+
     deployContract(
       name: "IRBOracle",
       args: any[],
@@ -124,6 +119,11 @@ declare module "hardhat/types/runtime" {
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.RBT>;
+    deployContract(
+      name: "Groth16Verifier",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.Groth16Verifier>;
 
     // default types
     getContractFactory(

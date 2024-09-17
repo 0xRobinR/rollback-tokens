@@ -2,6 +2,7 @@
 pragma solidity ^0.8.24;
 
 import "../rollback-token/RBT.sol";
+import "../Verifier.sol";
 
 contract RBTOracle is IRBOracle {
     event SahayakRegistered(address indexed addr);
@@ -10,6 +11,11 @@ contract RBTOracle is IRBOracle {
     event RBTDeployed(address indexed addr);
 
     mapping (address => bool) public isRBTtoken;
+    Groth16Verifier verifier;
+
+    constructor(address verifier_) {
+        verifier = Groth16Verifier(verifier_);
+    }
 
     function deployRBT(
         string memory name_,
@@ -23,5 +29,14 @@ contract RBTOracle is IRBOracle {
 
     function getReversePeriod() external pure returns (uint) {
         return 45 minutes;
+    }
+
+    function verifySahayak(
+        uint256[2] memory a,
+        uint256[2][2] memory b,
+        uint256[2] memory c,
+        uint256[1] memory input
+    ) external view returns (bool) {
+        return verifier.verifyProof(a, b, c, input);
     }
 }
