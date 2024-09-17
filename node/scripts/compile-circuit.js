@@ -7,7 +7,7 @@ function compileCircuit() {
   const outputDir = path.resolve(__dirname, "../circuits");
 
   exec(
-    `circom ${circuitPath} --r1cs --wasm --sym -o ${outputDir}`,
+    `circom ${circuitPath} --r1cs --wasm --sym -o ${outputDir} -l ./node_modules/circomlib/circuits`,
     (error, stdout, stderr) => {
       if (error) {
         console.error(`Error compiling circuit: ${error.message}`);

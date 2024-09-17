@@ -1,14 +1,14 @@
 pragma circom 2.0.0;
 
-include "pedersen.circom";
+include "poseidon.circom";
 
 template RbtSahayak() {
     signal input sahayak;
     signal output commitment;
 
-    component pedersenHash = Pedersen(256);
-    pedersenHash.in = [sahayak];
-    commitment <== pedersenHash.out;
+    component poseidonHash = Poseidon(1);
+    poseidonHash.inputs[0] <== sahayak;
+    commitment <== poseidonHash.out;
 }
 
 component main = RbtSahayak();
