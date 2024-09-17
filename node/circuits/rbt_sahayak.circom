@@ -1,22 +1,14 @@
 pragma circom 2.0.0;
 
-include "pedersen.circom";
+include "poseidon.circom";
 
-template RbtSahayakCircuit() {
+template RbtSahayak() {
     signal input sahayak;
-    signal input commitment;
-    signal output isValid;
+    signal output commitment;
 
-    signal hash_sahayak;
-
-    component pedersenHasher = Pedersen(2);
-    pedersenHasher.in[0] <== sahayak;
-    pedersenHasher.in[1] <== 0;
-    hash_sahayak <== pedersenHasher.out[0];
-
-    signal diff;
-    diff <== hash_sahayak - commitment;
-    isValid <== 1 - diff * diff;
+    component poseidonHash = Poseidon(1);
+    poseidonHash.inputs[0] <== sahayak;
+    commitment <== poseidonHash.out;
 }
 
-component main = RbtSahayakCircuit();
+component main = RbtSahayak();

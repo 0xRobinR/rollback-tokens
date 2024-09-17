@@ -1,25 +1,25 @@
-const { execSync } = require("child_process");
-const fs = require("fs");
+// scripts/compile-circuit.js
+const { exec } = require("child_process");
 const path = require("path");
 
-const CIRCUIT_DIR = path.join(__dirname, "../circuits");
-const BUILD_DIR = path.join(__dirname, "../build");
+function compileCircuit() {
+  const circuitPath = path.resolve(__dirname, "../circuits/rbt_sahayak.circom");
+  const outputDir = path.resolve(__dirname, "../circuits");
 
-const compileCircuit = () => {
-  console.log("Compiling Circom circuit...");
-  execSync(`circom ${CIRCUIT_DIR}/rbt_sahayak.circom --r1cs --wasm --sym --output ${BUILD_DIR}`, { stdio: "inherit" });
-
-  console.log("Circuit compiled successfully.");
-
-  console.log("Generating witness...");
-  execSync(`snarkjs wtns calculate ${BUILD_DIR}/rbt_sahayak_js/rbt_sahayak.wasm input.json ${BUILD_DIR}/witness.wtns`, { stdio: "inherit" });
-
-  console.log("Witness generated successfully.");
-
-  console.log("Generating proof...");
-  execSync(`snarkjs groth16 setup ${BUILD_DIR}/rbt_sahayak.r1cs powersOfTau28_hez_final_10.ptau ${BUILD_DIR}/circuit_final.zkey`, { stdio: "inherit" });
-
-  console.log("Proof generated successfully.");
-};
+  exec(
+    `circom ${circuitPath} --r1cs --wasm --sym -o ${outputDir} -l ./node_modules/circomlib/circuits`,
+    (error, stdout, stderr) => {
+      if (error) {
+        console.error(`Error compiling circuit: ${error.message}`);
+        return;
+      }
+      if (stderr) {
+        console.error(`Compilation stderr: ${stderr}`);
+        return;
+      }
+      console.log(`Circuit compiled successfully:\n${stdout}`);
+    }
+  );
+}
 
 compileCircuit();
