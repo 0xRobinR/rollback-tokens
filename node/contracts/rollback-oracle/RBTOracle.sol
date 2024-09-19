@@ -4,17 +4,16 @@ pragma solidity ^0.8.24;
 import "../rollback-token/RBT.sol";
 import "../Verifier.sol";
 
-contract RBTOracle is IRBOracle {
+contract RBTOracle is IRBOracle, Verifier {
     event SahayakRegistered(address indexed addr);
     event SahayakUnregistered(address indexed addr);
 
     event RBTDeployed(address indexed addr);
 
     mapping (address => bool) public isRBTtoken;
-    Groth16Verifier verifier;
+    Verifier verifier;
 
-    constructor(address verifier_) {
-        verifier = Groth16Verifier(verifier_);
+    constructor() {
     }
 
     function deployRBT(

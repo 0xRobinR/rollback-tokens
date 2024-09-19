@@ -20,3 +20,5 @@ export type { RBT } from "./rollback-token/RBT";
 export { RBT__factory } from "./factories/rollback-token/RBT__factory";
 export type { Groth16Verifier } from "./Verifier.sol/Groth16Verifier";
 export { Groth16Verifier__factory } from "./factories/Verifier.sol/Groth16Verifier__factory";
+export type { Verifier } from "./Verifier.sol/Verifier";
+export { Verifier__factory } from "./factories/Verifier.sol/Verifier__factory";
