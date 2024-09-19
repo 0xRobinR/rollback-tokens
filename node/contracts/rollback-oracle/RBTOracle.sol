@@ -7,7 +7,7 @@ import "../Verifier.sol";
 <<<<<<< HEAD
 contract RBTOracle is IRBOracle, RBTVerifier {
 =======
-contract RBTOracle is IRBOracle, Verifier {
+contract RBTOracle is IRBOracle, Verifier, Verifier {
 >>>>>>> c36627aca4da29456eb01434bc2419c337eb9545
     event SahayakRegistered(address indexed addr);
     event SahayakUnregistered(address indexed addr);
@@ -16,9 +16,6 @@ contract RBTOracle is IRBOracle, Verifier {
     event ProofVerified(address indexed sender, uint256 commitment);
 
     mapping (address => bool) public isRBTtoken;
-<<<<<<< HEAD
-    mapping(address => uint256) public commitments;
-=======
     Verifier verifier;
 
     constructor() {
