@@ -29,6 +29,7 @@ export interface RBTOracleInterface extends Interface {
       | "deployRBT"
       | "getReversePeriod"
       | "isRBTtoken"
+      | "verifyProof"
       | "verifySahayak"
   ): FunctionFragment;
 
@@ -52,6 +53,15 @@ export interface RBTOracleInterface extends Interface {
     values: [AddressLike]
   ): string;
   encodeFunctionData(
+    functionFragment: "verifyProof",
+    values: [
+      [BigNumberish, BigNumberish],
+      [[BigNumberish, BigNumberish], [BigNumberish, BigNumberish]],
+      [BigNumberish, BigNumberish],
+      [BigNumberish]
+    ]
+  ): string;
+  encodeFunctionData(
     functionFragment: "verifySahayak",
     values: [
       [BigNumberish, BigNumberish],
@@ -67,6 +77,10 @@ export interface RBTOracleInterface extends Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "isRBTtoken", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "verifyProof",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(
     functionFragment: "verifySahayak",
     data: BytesLike
@@ -162,6 +176,17 @@ export interface RBTOracle extends BaseContract {
 
   isRBTtoken: TypedContractMethod<[arg0: AddressLike], [boolean], "view">;
 
+  verifyProof: TypedContractMethod<
+    [
+      _pA: [BigNumberish, BigNumberish],
+      _pB: [[BigNumberish, BigNumberish], [BigNumberish, BigNumberish]],
+      _pC: [BigNumberish, BigNumberish],
+      _pubSignals: [BigNumberish]
+    ],
+    [boolean],
+    "view"
+  >;
+
   verifySahayak: TypedContractMethod<
     [
       a: [BigNumberish, BigNumberish],
@@ -190,6 +215,18 @@ export interface RBTOracle extends BaseContract {
   getFunction(
     nameOrSignature: "isRBTtoken"
   ): TypedContractMethod<[arg0: AddressLike], [boolean], "view">;
+  getFunction(
+    nameOrSignature: "verifyProof"
+  ): TypedContractMethod<
+    [
+      _pA: [BigNumberish, BigNumberish],
+      _pB: [[BigNumberish, BigNumberish], [BigNumberish, BigNumberish]],
+      _pC: [BigNumberish, BigNumberish],
+      _pubSignals: [BigNumberish]
+    ],
+    [boolean],
+    "view"
+  >;
   getFunction(
     nameOrSignature: "verifySahayak"
   ): TypedContractMethod<

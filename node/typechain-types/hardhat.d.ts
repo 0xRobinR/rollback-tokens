@@ -37,6 +37,10 @@ declare module "hardhat/types/runtime" {
       name: "Groth16Verifier",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.Groth16Verifier__factory>;
+    getContractFactory(
+      name: "Verifier",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.Verifier__factory>;
 
     getContractAt(
       name: "IRBOracle",
@@ -68,6 +72,11 @@ declare module "hardhat/types/runtime" {
       address: string | ethers.Addressable,
       signer?: ethers.Signer
     ): Promise<Contracts.Groth16Verifier>;
+    getContractAt(
+      name: "Verifier",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.Verifier>;
 
     deployContract(
       name: "IRBOracle",
@@ -93,6 +102,10 @@ declare module "hardhat/types/runtime" {
       name: "Groth16Verifier",
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.Groth16Verifier>;
+    deployContract(
+      name: "Verifier",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.Verifier>;
 
     deployContract(
       name: "IRBOracle",
@@ -124,6 +137,11 @@ declare module "hardhat/types/runtime" {
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.Groth16Verifier>;
+    deployContract(
+      name: "Verifier",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.Verifier>;
 
     // default types
     getContractFactory(

@@ -151,8 +151,8 @@
       ]
     },
     "P:\\solidity\\rbt\\node\\contracts\\rollback-oracle\\RBTOracle.sol": {
-      "lastModificationDate": 1725796603199,
-      "contentHash": "a2567dd162e671957ca45f05c25e9c6f",
+      "lastModificationDate": 1726759305002,
+      "contentHash": "38743561beb73cf069fb0a6c56e787c0",
       "sourceName": "contracts/rollback-oracle/RBTOracle.sol",
       "solcConfig": {
         "version": "0.8.24",
@@ -190,8 +190,8 @@
       ]
     },
     "P:\\solidity\\rbt\\node\\contracts\\Verifier.sol": {
-      "lastModificationDate": 1725732189065,
-      "contentHash": "6d71ee98ee45b2d96cebd350792dbacd",
+      "lastModificationDate": 1726759288917,
+      "contentHash": "8fa8463bf52b9a1a50a1d5330fde9af1",
       "sourceName": "contracts/Verifier.sol",
       "solcConfig": {
         "version": "0.8.24",
@@ -222,7 +222,7 @@
         ">=0.7.0 <0.9.0"
       ],
       "artifacts": [
-        "Groth16Verifier"
+        "Verifier"
       ]
     },
     "P:\\solidity\\rbt\\node\\contracts\\rollback-oracle\\RBTProof.sol": {

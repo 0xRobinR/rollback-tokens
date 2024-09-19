@@ -20,7 +20,11 @@
 
 pragma solidity >=0.7.0 <0.9.0;
 
+<<<<<<< HEAD
 contract RBTVerifier {
+=======
+contract Verifier {
+>>>>>>> c36627aca4da29456eb01434bc2419c337eb9545
     // Scalar field size
     uint256 constant r    = 21888242871839275222246405745257275088548364400416034343698204186575808495617;
     // Base field size
