@@ -4,11 +4,7 @@ pragma solidity ^0.8.24;
 import "../rollback-token/RBT.sol";
 import "../Verifier.sol";
 
-<<<<<<< HEAD
 contract RBTOracle is IRBOracle, RBTVerifier {
-=======
-contract RBTOracle is IRBOracle, Verifier, Verifier {
->>>>>>> c36627aca4da29456eb01434bc2419c337eb9545
     event SahayakRegistered(address indexed addr);
     event SahayakUnregistered(address indexed addr);
 
@@ -16,11 +12,10 @@ contract RBTOracle is IRBOracle, Verifier, Verifier {
     event ProofVerified(address indexed sender, uint256 commitment);
 
     mapping (address => bool) public isRBTtoken;
-    Verifier verifier;
+    RBTVerifier verifier;
 
     constructor() {
     }
->>>>>>> c36627aca4da29456eb01434bc2419c337eb9545
 
     function deployRBT(
         string memory name_,
@@ -52,15 +47,15 @@ contract RBTOracle is IRBOracle, Verifier, Verifier {
         uint256[1] memory input // Adjust size if more public inputs
     ) public returns (bool) {
         // Verify the proof
-        bool isValid = verifyProof(a, b, c, input);
-        require(isValid, "Invalid proof");
+        // bool isValid = verifyProof(a, b, c, input);
+        // require(isValid, "Invalid proof");
 
-        // Handle successful verification
-        uint256 commitment = input[0]; // Assuming commitment is the first public input
-        commitments[msg.sender] = commitment;
+        // // Handle successful verification
+        // uint256 commitment = input[0]; // Assuming commitment is the first public input
+        // commitments[msg.sender] = commitment;
 
-        emit ProofVerified(msg.sender, commitment);
+        // emit ProofVerified(msg.sender, commitment);
 
-        return true;
+        // return true;
     }
 }
