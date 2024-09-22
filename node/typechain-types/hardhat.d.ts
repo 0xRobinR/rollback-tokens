@@ -34,9 +34,9 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.RBT__factory>;
     getContractFactory(
-      name: "Groth16Verifier",
+      name: "RBTVerifier",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.Groth16Verifier__factory>;
+    ): Promise<Contracts.RBTVerifier__factory>;
     getContractFactory(
       name: "Verifier",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -68,10 +68,10 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.RBT>;
     getContractAt(
-      name: "Groth16Verifier",
+      name: "RBTVerifier",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
-    ): Promise<Contracts.Groth16Verifier>;
+    ): Promise<Contracts.RBTVerifier>;
     getContractAt(
       name: "Verifier",
       address: string | ethers.Addressable,
@@ -99,9 +99,9 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.RBT>;
     deployContract(
-      name: "Groth16Verifier",
+      name: "RBTVerifier",
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.Groth16Verifier>;
+    ): Promise<Contracts.RBTVerifier>;
     deployContract(
       name: "Verifier",
       signerOrOptions?: ethers.Signer | DeployContractOptions
@@ -133,10 +133,10 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.RBT>;
     deployContract(
-      name: "Groth16Verifier",
+      name: "RBTVerifier",
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.Groth16Verifier>;
+    ): Promise<Contracts.RBTVerifier>;
     deployContract(
       name: "Verifier",
       args: any[],

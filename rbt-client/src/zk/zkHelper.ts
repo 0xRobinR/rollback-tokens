@@ -39,6 +39,7 @@ export async function generateProof(sahayak: string) {
     new Uint8Array(wasmArrayBuffer),
     new Uint8Array(zkeyArrayBuffer)
   );
+  console.log(inputs);
 
   return { proof, publicSignals };
 }

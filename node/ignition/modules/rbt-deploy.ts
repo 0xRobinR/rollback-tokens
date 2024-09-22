@@ -5,7 +5,7 @@ async function main() {
     const rbtDeploy = await ethers.getContractFactory("RBTOracle")
     const rbt = await rbtDeploy.deploy()
     await rbt.waitForDeployment()
-    console.log("RBT deployed to:", rbt.getAddress())
+    console.log("RBT deployed to:", await rbt.getAddress())
 }
 
 // We recommend this pattern to be able to use async/await everywhere

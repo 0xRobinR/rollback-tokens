@@ -29,12 +29,14 @@ export interface RBTOracleInterface extends Interface {
       | "deployRBT"
       | "getReversePeriod"
       | "isRBTtoken"
+      | "submitProof"
       | "verifyProof"
       | "verifySahayak"
   ): FunctionFragment;
 
   getEvent(
     nameOrSignatureOrTopic:
+      | "ProofVerified"
       | "RBTDeployed"
       | "SahayakRegistered"
       | "SahayakUnregistered"
@@ -51,6 +53,15 @@ export interface RBTOracleInterface extends Interface {
   encodeFunctionData(
     functionFragment: "isRBTtoken",
     values: [AddressLike]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "submitProof",
+    values: [
+      [BigNumberish, BigNumberish],
+      [[BigNumberish, BigNumberish], [BigNumberish, BigNumberish]],
+      [BigNumberish, BigNumberish],
+      [BigNumberish]
+    ]
   ): string;
   encodeFunctionData(
     functionFragment: "verifyProof",
@@ -78,6 +89,10 @@ export interface RBTOracleInterface extends Interface {
   ): Result;
   decodeFunctionResult(functionFragment: "isRBTtoken", data: BytesLike): Result;
   decodeFunctionResult(
+    functionFragment: "submitProof",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
     functionFragment: "verifyProof",
     data: BytesLike
   ): Result;
@@ -85,6 +100,19 @@ export interface RBTOracleInterface extends Interface {
     functionFragment: "verifySahayak",
     data: BytesLike
   ): Result;
+}
+
+export namespace ProofVerifiedEvent {
+  export type InputTuple = [sender: AddressLike, commitment: BigNumberish];
+  export type OutputTuple = [sender: string, commitment: bigint];
+  export interface OutputObject {
+    sender: string;
+    commitment: bigint;
+  }
+  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
+  export type Filter = TypedDeferredTopicFilter<Event>;
+  export type Log = TypedEventLog<Event>;
+  export type LogDescription = TypedLogDescription<Event>;
 }
 
 export namespace RBTDeployedEvent {
@@ -176,6 +204,17 @@ export interface RBTOracle extends BaseContract {
 
   isRBTtoken: TypedContractMethod<[arg0: AddressLike], [boolean], "view">;
 
+  submitProof: TypedContractMethod<
+    [
+      a: [BigNumberish, BigNumberish],
+      b: [[BigNumberish, BigNumberish], [BigNumberish, BigNumberish]],
+      c: [BigNumberish, BigNumberish],
+      input: [BigNumberish]
+    ],
+    [boolean],
+    "nonpayable"
+  >;
+
   verifyProof: TypedContractMethod<
     [
       _pA: [BigNumberish, BigNumberish],
@@ -216,6 +255,18 @@ export interface RBTOracle extends BaseContract {
     nameOrSignature: "isRBTtoken"
   ): TypedContractMethod<[arg0: AddressLike], [boolean], "view">;
   getFunction(
+    nameOrSignature: "submitProof"
+  ): TypedContractMethod<
+    [
+      a: [BigNumberish, BigNumberish],
+      b: [[BigNumberish, BigNumberish], [BigNumberish, BigNumberish]],
+      c: [BigNumberish, BigNumberish],
+      input: [BigNumberish]
+    ],
+    [boolean],
+    "nonpayable"
+  >;
+  getFunction(
     nameOrSignature: "verifyProof"
   ): TypedContractMethod<
     [
@@ -241,6 +292,13 @@ export interface RBTOracle extends BaseContract {
   >;
 
   getEvent(
+    key: "ProofVerified"
+  ): TypedContractEvent<
+    ProofVerifiedEvent.InputTuple,
+    ProofVerifiedEvent.OutputTuple,
+    ProofVerifiedEvent.OutputObject
+  >;
+  getEvent(
     key: "RBTDeployed"
   ): TypedContractEvent<
     RBTDeployedEvent.InputTuple,
@@ -263,6 +321,17 @@ export interface RBTOracle extends BaseContract {
   >;
 
   filters: {
+    "ProofVerified(address,uint256)": TypedContractEvent<
+      ProofVerifiedEvent.InputTuple,
+      ProofVerifiedEvent.OutputTuple,
+      ProofVerifiedEvent.OutputObject
+    >;
+    ProofVerified: TypedContractEvent<
+      ProofVerifiedEvent.InputTuple,
+      ProofVerifiedEvent.OutputTuple,
+      ProofVerifiedEvent.OutputObject
+    >;
+
     "RBTDeployed(address)": TypedContractEvent<
       RBTDeployedEvent.InputTuple,
       RBTDeployedEvent.OutputTuple,
