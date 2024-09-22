@@ -39,7 +39,20 @@ export async function generateProof(sahayak: string) {
     new Uint8Array(wasmArrayBuffer),
     new Uint8Array(zkeyArrayBuffer)
   );
-  console.log(inputs);
+  console.debug(await verifyProof(proof, publicSignals));
 
   return { proof, publicSignals };
+}
+
+export async function verifyProof(proof: any, publicSignals: any): Promise<boolean> {
+  try {
+    const vkeyResponse = await fetch("/verification_key.json");
+    const vkey = await vkeyResponse.json();
+    const isValid = await groth16.verify(vkey, publicSignals, proof);
+
+    return isValid;
+  } catch (error) {
+    console.error("Error during proof verification:", error);
+    throw new Error("Proof verification failed");
+  }
 }
