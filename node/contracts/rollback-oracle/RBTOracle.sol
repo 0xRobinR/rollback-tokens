@@ -2,7 +2,8 @@
 pragma solidity ^0.8.24;
 
 import "../rollback-token/RBT.sol";
-import "../Verifier.sol";
+import "../RBTVerifier.sol";
+
 
 contract RBTOracle is IRBOracle, RBTVerifier {
     event SahayakRegistered(address indexed addr);

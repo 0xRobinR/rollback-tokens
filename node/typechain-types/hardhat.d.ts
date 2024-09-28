@@ -14,6 +14,10 @@ import * as Contracts from ".";
 declare module "hardhat/types/runtime" {
   interface HardhatEthersHelpers extends HardhatEthersHelpersBase {
     getContractFactory(
+      name: "RBTVerifier",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.RBTVerifier__factory>;
+    getContractFactory(
       name: "IRBOracle",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IRBOracle__factory>;
@@ -34,14 +38,15 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.RBT__factory>;
     getContractFactory(
-      name: "RBTVerifier",
+      name: "RBTVerifier22",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.RBTVerifier__factory>;
-    getContractFactory(
-      name: "Verifier",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.Verifier__factory>;
+    ): Promise<Contracts.RBTVerifier22__factory>;
 
+    getContractAt(
+      name: "RBTVerifier",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.RBTVerifier>;
     getContractAt(
       name: "IRBOracle",
       address: string | ethers.Addressable,
@@ -68,16 +73,15 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.RBT>;
     getContractAt(
-      name: "RBTVerifier",
+      name: "RBTVerifier22",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
-    ): Promise<Contracts.RBTVerifier>;
-    getContractAt(
-      name: "Verifier",
-      address: string | ethers.Addressable,
-      signer?: ethers.Signer
-    ): Promise<Contracts.Verifier>;
+    ): Promise<Contracts.RBTVerifier22>;
 
+    deployContract(
+      name: "RBTVerifier",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.RBTVerifier>;
     deployContract(
       name: "IRBOracle",
       signerOrOptions?: ethers.Signer | DeployContractOptions
@@ -99,14 +103,15 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.RBT>;
     deployContract(
+      name: "RBTVerifier22",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.RBTVerifier22>;
+
+    deployContract(
       name: "RBTVerifier",
+      args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.RBTVerifier>;
-    deployContract(
-      name: "Verifier",
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.Verifier>;
-
     deployContract(
       name: "IRBOracle",
       args: any[],
@@ -133,15 +138,10 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.RBT>;
     deployContract(
-      name: "RBTVerifier",
+      name: "RBTVerifier22",
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.RBTVerifier>;
-    deployContract(
-      name: "Verifier",
-      args: any[],
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.Verifier>;
+    ): Promise<Contracts.RBTVerifier22>;
 
     // default types
     getContractFactory(

@@ -48,6 +48,7 @@ export async function verifyProof(proof: any, publicSignals: any): Promise<boole
   try {
     const vkeyResponse = await fetch("/verification_key.json");
     const vkey = await vkeyResponse.json();
+    console.debug(vkey);
     const isValid = await groth16.verify(vkey, publicSignals, proof);
 
     return isValid;
