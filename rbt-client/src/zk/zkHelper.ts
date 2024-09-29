@@ -1,5 +1,6 @@
 // src/zk/zkHelper.ts
 import { groth16 } from "snarkjs";
+import { proofToHex, publicSignalsToHex } from "./zkUtils";
 
 export async function generateProof(sahayak: string) {
   // Convert sahayak to BigInt
@@ -40,8 +41,15 @@ export async function generateProof(sahayak: string) {
     new Uint8Array(zkeyArrayBuffer)
   );
   console.debug(await verifyProof(proof, publicSignals));
+  const callData = await generateCallData(proof, publicSignals);
+  console.debug(callData);
 
-  return { proof, publicSignals };
+  const hexProof = proofToHex(proof);
+  const hexPublicSignals = publicSignalsToHex(publicSignals);
+  console.debug(hexProof);
+  console.debug(hexPublicSignals);
+
+  return { proof, publicSignals, callData, hexProof, hexPublicSignals };
 }
 
 export async function verifyProof(proof: any, publicSignals: any): Promise<boolean> {
@@ -56,4 +64,23 @@ export async function verifyProof(proof: any, publicSignals: any): Promise<boole
     console.error("Error during proof verification:", error);
     throw new Error("Proof verification failed");
   }
+}
+
+export async function generateCallData(proof: any, publicSignals: any) {
+  const callDataStr = await groth16.exportSolidityCallData(proof, publicSignals);
+  console.debug(callDataStr)
+  const callData = callDataStr
+    .replace(/["[\]\s]/g, "")
+    .split(",")
+    .map((x: string) => BigInt(x).toString());
+
+  const a = [callData[0], callData[1]];
+  const b = [
+    [callData[2], callData[3]],
+    [callData[4], callData[5]],
+  ];
+  const c = [callData[6], callData[7]];
+  const input = callData.slice(8); // Adjust this based on how many public inputs you have
+
+  return { a, b, c, input };
 }

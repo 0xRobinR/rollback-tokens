@@ -1,10 +1,10 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "P:\\solidity\\rbt\\node\\contracts\\rollback-oracle\\IRBTOracle.sol": {
-      "lastModificationDate": 1724835239774,
-      "contentHash": "3773995a31b642b9e012a744c8efab1d",
-      "sourceName": "contracts/rollback-oracle/IRBTOracle.sol",
+    "/home/cyk/hackathon/rollback-tokens/node/contracts/RBTVerifier.sol": {
+      "lastModificationDate": 1727595382920,
+      "contentHash": "bdfa77e1f02ad03c29a19a70517e0f8b",
+      "sourceName": "contracts/RBTVerifier.sol",
       "solcConfig": {
         "version": "0.8.24",
         "settings": {
@@ -31,128 +31,15 @@
       },
       "imports": [],
       "versionPragmas": [
-        "^0.8.24"
+        ">=0.7.0 <0.9.0"
       ],
       "artifacts": [
-        "IRBOracle"
+        "RBTVerifier"
       ]
     },
-    "P:\\solidity\\rbt\\node\\contracts\\rollback-token\\RBT.sol": {
-      "lastModificationDate": 1725732189066,
-      "contentHash": "c995700f4439ce8bab62625d4588250a",
-      "sourceName": "contracts/rollback-token/RBT.sol",
-      "solcConfig": {
-        "version": "0.8.24",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./IRBT.sol",
-        "../rollback-oracle/IRBTOracle.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.24"
-      ],
-      "artifacts": [
-        "RBT"
-      ]
-    },
-    "P:\\solidity\\rbt\\node\\contracts\\rollback-token\\IRBT.sol": {
-      "lastModificationDate": 1724835141083,
-      "contentHash": "513a4668c9b32429a21501d46c5bb09a",
-      "sourceName": "contracts/rollback-token/IRBT.sol",
-      "solcConfig": {
-        "version": "0.8.24",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./IERC20.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.24"
-      ],
-      "artifacts": [
-        "IRBT"
-      ]
-    },
-    "P:\\solidity\\rbt\\node\\contracts\\rollback-token\\IERC20.sol": {
-      "lastModificationDate": 1724768153807,
-      "contentHash": "cc9036e7f2a40442268c8026b31c6767",
-      "sourceName": "contracts/rollback-token/IERC20.sol",
-      "solcConfig": {
-        "version": "0.8.24",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.24"
-      ],
-      "artifacts": [
-        "IERC20"
-      ]
-    },
-    "P:\\solidity\\rbt\\node\\contracts\\rollback-oracle\\RBTOracle.sol": {
-      "lastModificationDate": 1727530833344,
-      "contentHash": "cc2fa01f8c7bfe503bb5f489c4377e7d",
+    "/home/cyk/hackathon/rollback-tokens/node/contracts/rollback-oracle/RBTOracle.sol": {
+      "lastModificationDate": 1727595376560,
+      "contentHash": "c16721199ec1f7833258d595258ba9a6",
       "sourceName": "contracts/rollback-oracle/RBTOracle.sol",
       "solcConfig": {
         "version": "0.8.24",
@@ -189,10 +76,159 @@
         "RBTOracle"
       ]
     },
-    "P:\\solidity\\rbt\\node\\contracts\\Verifier.sol": {
-      "lastModificationDate": 1727530859118,
-      "contentHash": "a0ba9490326adcf1e12e3684f8412177",
-      "sourceName": "contracts/Verifier.sol",
+    "/home/cyk/hackathon/rollback-tokens/node/contracts/rollback-token/RBT.sol": {
+      "lastModificationDate": 1727595376560,
+      "contentHash": "35c5631d5656b06582a0b7c42115c09a",
+      "sourceName": "contracts/rollback-token/RBT.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IRBT.sol",
+        "../rollback-oracle/IRBTOracle.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "RBT"
+      ]
+    },
+    "/home/cyk/hackathon/rollback-tokens/node/contracts/rollback-oracle/IRBTOracle.sol": {
+      "lastModificationDate": 1727595376560,
+      "contentHash": "1ebf9b471ee8418bc4f7492c70a6f0a6",
+      "sourceName": "contracts/rollback-oracle/IRBTOracle.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "IRBOracle"
+      ]
+    },
+    "/home/cyk/hackathon/rollback-tokens/node/contracts/rollback-token/IRBT.sol": {
+      "lastModificationDate": 1727595376560,
+      "contentHash": "200ce9d0746612638e370395cd5cc072",
+      "sourceName": "contracts/rollback-token/IRBT.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "IRBT"
+      ]
+    },
+    "/home/cyk/hackathon/rollback-tokens/node/contracts/rollback-token/IERC20.sol": {
+      "lastModificationDate": 1727595376560,
+      "contentHash": "105c73481f1842e26d5377263e53bfe3",
+      "sourceName": "contracts/rollback-token/IERC20.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "IERC20"
+      ]
+    },
+    "/home/cyk/hackathon/rollback-tokens/node/contracts/oldVerifier.sol": {
+      "lastModificationDate": 1727595376560,
+      "contentHash": "33c23442b8e5a1eb9f06a68f5b2e9f90",
+      "sourceName": "contracts/oldVerifier.sol",
       "solcConfig": {
         "version": "0.8.24",
         "settings": {
@@ -225,9 +261,9 @@
         "RBTVerifier22"
       ]
     },
-    "P:\\solidity\\rbt\\node\\contracts\\rollback-oracle\\RBTProof.sol": {
-      "lastModificationDate": 1725719622650,
-      "contentHash": "90e3ce77566f3af998de352ad9b19df9",
+    "/home/cyk/hackathon/rollback-tokens/node/contracts/rollback-oracle/RBTProof.sol": {
+      "lastModificationDate": 1727595376560,
+      "contentHash": "e547f68c77640a15afe3900f80f19076",
       "sourceName": "contracts/rollback-oracle/RBTProof.sol",
       "solcConfig": {
         "version": "0.8.24",
@@ -261,8 +297,8 @@
         "RBTProof"
       ]
     },
-    "P:\\solidity\\rbt\\node\\contracts\\rollback-token\\RBTWrapper.sol": {
-      "lastModificationDate": 1725719591926,
+    "/home/cyk/hackathon/rollback-tokens/node/contracts/rollback-token/RBTWrapper.sol": {
+      "lastModificationDate": 1727595376560,
       "contentHash": "2358d3de1f98210c8b9eecb112361716",
       "sourceName": "contracts/rollback-token/RBTWrapper.sol",
       "solcConfig": {
@@ -293,10 +329,10 @@
       "versionPragmas": [],
       "artifacts": []
     },
-    "P:\\solidity\\rbt\\node\\contracts\\RBTVerifier.sol": {
-      "lastModificationDate": 1727531052636,
-      "contentHash": "e696c710f783b5e4f0b5075dbd627492",
-      "sourceName": "contracts/RBTVerifier.sol",
+    "/home/cyk/hackathon/rollback-tokens/node/contracts/verifier.sol": {
+      "lastModificationDate": 1727595381150,
+      "contentHash": "4828b4e937b67f5a8fce2302d758b0ad",
+      "sourceName": "contracts/verifier.sol",
       "solcConfig": {
         "version": "0.8.24",
         "settings": {
@@ -326,7 +362,7 @@
         ">=0.7.0 <0.9.0"
       ],
       "artifacts": [
-        "RBTVerifier"
+        "MYVerifier"
       ]
     }
   }

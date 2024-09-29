@@ -1,6 +1,6 @@
 // src/zk/contractHelper.ts
 import { ethers, InterfaceAbi } from "ethers";
-import RBTOracleABI from "../abi/RBTOracle.json";
+import * as RBTOracleABI from "../abi/RBTOracle.json";
 
 const contractAddress = "0x0000000000000000000000000000000000000000";
 
